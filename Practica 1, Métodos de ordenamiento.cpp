@@ -1,14 +1,14 @@
-/*	Practica 1: Algoritmos de ordenamiento
-    Ingenier韆 Inform醫ica
+/*  Practica 1: Algoritmos de ordenamiento
+    Ingenier铆a Inform谩tica
     Estructuras de Datos
-    Secci髇 1
+    Secci贸n 1
     Alumnos:
-        Sebasti醤 Landaeta (CI: 28.240.979)
+        Sebasti谩n Landaeta (CI: 28.240.979)
         Antonietta Palazzo (CI: 28.619.939)
         Valery Medina (CI: 29.643.312)
 */
 
-// == LIBRER虯S ==
+// == LIBRER脥AS ==
 #include <iostream>
 #include <stdlib.h>
 #include <locale.h>
@@ -17,8 +17,8 @@
 #include <iomanip>
 
 // == MACROS ==
-#define SIZE 30000 // Tama駉 de los arreglos
-#define N_ALGORITMOS 6 // N鷐ero de algoritmos
+#define SIZE 30000 // Tama帽o de los arreglos
+#define N_ALGORITMOS 6 // N煤mero de algoritmos
 
 #define ORDENADO 0
 #define DESORDENADO 1
@@ -29,9 +29,9 @@ using namespace std;
 // == CLASES ==
 class Utilidad
 {
-    // == M蒚ODOS ==
+    // == M脡TODOS ==
     public:
-        // Mueve el cursor a una coordenada espec韋ica
+        // Mueve el cursor a una coordenada espec铆fica
         void gotoxy(int X, int Y)
         {
             HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -61,14 +61,14 @@ class Tiempo
         double tiempo[3];
 };
 
-// M閠odos generales del programa
+// M茅todos generales del programa
 class Programa
 {
     // == ATRIBUTO ==
     private:
         Utilidad utilidad;
 
-    // == M蒚ODOS ==
+    // == M脡TODOS ==
     public:
         // Llena los arreglos de forma ordenada
         void llenar_arreglo(int *arreglo, bool inverso)
@@ -114,7 +114,7 @@ class Programa
             cout << "Inverso\n";
         }
 
-        // Mide el tiempo de ejecuci髇 de un algoritmo
+        // Mide el tiempo de ejecuci贸n de un algoritmo
         double medir_tiempo(void (*algoritmo)(int[], int), int arreglo[], int size)
         {
             int aux[SIZE];
@@ -124,7 +124,7 @@ class Programa
             // Copiar arreglo en auxiliar
             utilidad.copy_array(arreglo, aux, size);
 
-            // Medir tiempo de ejecuci髇
+            // Medir tiempo de ejecuci贸n
             tiempo_i = clock();
             algoritmo(aux, size);
             tiempo_f = clock();
@@ -176,9 +176,9 @@ class Programa
 // Contiene todos los algoritmos de ordenamiento
 class Ordenamiento
 {
-    // == M蒚ODOS ==
+    // == M脡TODOS ==
     public:
-        // Ordena un arreglo usando el algoritmo de inserci髇
+        // Ordena un arreglo usando el algoritmo de inserci贸n
         static void insertsort(int arreglo[], int size)
         {
             Programa programa;
@@ -192,7 +192,7 @@ class Ordenamiento
             }
         }
         
-        // Ordena un arreglo usando el algoritmo de selecci髇
+        // Ordena un arreglo usando el algoritmo de selecci贸n
         static void selectionsort(int arreglo[], int size)
         {
             Programa programa;
@@ -285,7 +285,7 @@ class Ordenamiento
             qsort(arreglo, size, sizeof(int), cmpfunc);
         }
 
-        // Ordena los tiempos de ejecuci髇 usando shell
+        // Ordena los tiempos de ejecuci贸n usando shell
         static void stimes(double tiempos[], string nombres[])
         {
             Programa programa;
@@ -316,8 +316,8 @@ int main()
     Tiempo time[N_ALGORITMOS];
 
     // Asignar los nombres de los algoritmos
-    time[0].nombre_algoritmo = "Inserci髇";
-    time[1].nombre_algoritmo = "Selecci髇";
+    time[0].nombre_algoritmo = "Inserci贸n";
+    time[1].nombre_algoritmo = "Selecci贸n";
     time[2].nombre_algoritmo = "Burbuja";
     time[3].nombre_algoritmo = "Burbuja modificado";
     time[4].nombre_algoritmo = "Shell";
@@ -331,7 +331,7 @@ int main()
     // Desordenar arreglo
     programa.desordenar_arreglo(desordenado);
 
-    // Crear arreglo de punteros a m閠odos
+    // Crear arreglo de punteros a m茅todos
     void (*algoritmos[N_ALGORITMOS]) (int arreglo[], int size) = 
     {
         Ordenamiento::insertsort,
